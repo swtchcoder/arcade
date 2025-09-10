@@ -1,0 +1,6 @@
+*.exe
+*.out
+*.o
+docs/node_modules
+docs/.vitepress/cache
+docs/.vitepress/dist

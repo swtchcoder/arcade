@@ -1,0 +1,11 @@
+{
+    "terminal.integrated.profiles.windows": {
+        "MSYS2 MINGW64": {
+            "path": "C:\\msys64\\msys2_shell.cmd",
+            "args": ["-defterm", "-here", "-no-start", "-mingw64"],
+            "icon": "terminal-bash"
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "MSYS2 MINGW64",
+    "editor.rulers": [79],
+}

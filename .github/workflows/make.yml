@@ -1,0 +1,42 @@
+name: Build Arcade
+
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "arcade.c"
+  pull_request:
+    branches:
+      - "main"
+    paths:
+      - "arcade.c"
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup MSYS2 (mingw64)
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: mingw64
+          update: true
+          install: >
+            mingw-w64-x86_64-toolchain
+
+      - name: Add MSYS2 mingw64 to PATH
+        shell: powershell
+        run: |
+          $env:Path = "$env:Path;C:\msys64\mingw64\bin"
+
+      - name: Build
+        shell: bash
+        run: make
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: arcade.exe
