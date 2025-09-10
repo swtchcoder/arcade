@@ -5,12 +5,15 @@ on:
     branches:
       - "main"
     paths:
-      - "arcade.c"
+      - "**.h"
+      - "**.c"
   pull_request:
     branches:
       - "main"
     paths:
-      - "arcade.c"
+      - "**.h"
+      - "**.c"
+  workflow_dispatch:
 
 jobs:
   build:
